@@ -9,7 +9,7 @@
  */
 
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import Title from '@components/title';
 import TodoInput from '@components/todoInput';
 import TodoList from '@components/todoList';
@@ -56,11 +56,11 @@ const App = () => {
     setList((list) => list.filter((item) => item.id !== id));
 
   return (
-    <View style={styles.body}>
+    <SafeAreaView style={styles.body}>
       <Title />
       <TodoInput addTodo={addTodo} />
       <TodoList list={list} removeTodo={removeItem} toggleDone={toggleDone} />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
+
+    flex: 1,
   },
 });
 
